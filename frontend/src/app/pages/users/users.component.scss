@@ -1,0 +1,124 @@
+.container {
+  margin-top: 20px; /* Adjust as needed */
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc; /* Example border */
+  background-color: #fff; /* Example background color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Example shadow */
+}
+
+.user-table th,
+.user-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* Example border bottom */
+}
+
+.user-table th {
+  background-color: #f0f0f0; /* Example header background color */
+}
+
+.user-row:hover {
+  background-color: #f9f9f9; /* Example row hover background color */
+}
+
+/* users.component.scss */
+
+/* Adjust form layout */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Style form labels */
+.form-label {
+  font-weight: bold;
+}
+
+/* Style form inputs */
+.form-control {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Style form textarea */
+.form-control textarea {
+  resize: vertical; /* Allow resizing vertically */
+}
+
+.table-blur {
+  opacity: 0.5; /* Adjust the opacity as needed */
+  filter: blur(3px); /* Apply blur effect */
+  transition: opacity 0.3s ease, filter 0.3s ease; /* Smooth transition for the effects */
+}
+
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .spinner-border {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup-content {
+    background-color: whitesmoke; /* Example background color */
+    padding: 20px; /* Example padding */
+    border-radius: 8px; /* Example border radius */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Example shadow */
+  }
+  
+  .close-btn{
+    cursor: pointer;
+    float: right;
+    position: relative;
+    top: -19px;
+    left: 8px;
+    margin-bottom: 10px;
+    width: 40px;
+    text-align: center;
+  }
+
+  .close-btn:hover{
+    background-color: blanchedalmond;
+    border-radius: 50%;
+  }
+
+  .update-btn{
+    margin-right: 10px;
+  }
+
+  .download-btn{
+    display: flex;
+    justify-content: end;
+  } 

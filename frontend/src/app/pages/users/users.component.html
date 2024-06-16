@@ -1,0 +1,89 @@
+<div class="container download-btn">
+	<button class="btn btn-info" type="btn" (click)="downloadPDF()">Download PDF</button>
+</div>
+
+<div class="container" [ngClass]="{ 'table-blur': backgroundBlur }">
+	<table class="user-table text-align-center mt-3">
+		<thead>
+			<tr>
+				<th>S No.</th>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Phone</th>
+				<th>Address</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let user of users; let i = index" class="user-row">
+				<td>{{ i + 1 }}</td>
+				<td>{{ user.name }}</td>
+				<td>{{ user.email }}</td>
+				<td>{{ user.phone }}</td>
+				<td>{{ user.address }}</td>
+				<td>
+					<button type="button" class="btn" (click)="handleoOnSelectedUser(user)">...</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="popup-container" *ngIf="showPopup">
+	<div class="popup-content">
+		<form [formGroup]="userForm" (ngSubmit)="submitForm()">
+			<div class="close-btn" (click)="closeForm()">X</div>
+			<div class="row">
+				<div class="form-group col-6">
+					<label for="name" class="form-label">Name</label>
+					<input class="form-control" type="text" name="name" id="name" formControlName="name">
+					<app-form-error [form]="userForm" control="name" controlName="Name" [options]="{
+                  messages:{
+                      required:'Name is required',
+                      minlength:'Name is too short.'
+                  }
+              }"></app-form-error>
+				</div>
+				<div class="form-group col-6">
+					<label for="phone" class="form-label">Phone</label>
+					<input class="form-control" type="number" name="phone" id="phone" formControlName="phone">
+					<app-form-error [form]="userForm" control="phone" controlName="phone" [options]="{
+                  messages:{
+                      required:'Phone is required',
+                      minlength:'Phone is too short.',
+                      maxlength: 'Phone is too large'
+                  }
+              }"></app-form-error>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="email" class="form-label">Email</label>
+				<input class="form-control" type="email" name="email" id="email" formControlName="email">
+				<app-form-error [form]="userForm" control="email" controlName="email" [options]="{
+              messages:{
+                  required:'Email is required'
+              }
+          }"></app-form-error>
+			</div>
+			<div class="form-group">
+				<label for="address" class="form-label">Address</label>
+				<textarea class="form-control" name="address" id="address" formControlName="address" cols="20"
+					rows="5"></textarea>
+				<app-form-error [form]="userForm" control="address" controlName="address" [options]="{
+              messages:{
+                  required:'Address is required'
+              }
+          }"></app-form-error>
+			</div>
+			<div class="d-flex justify-content-end align-items-center">
+				<button class="btn btn-primary update-btn" type="submit" [disabled]="isSubmit">Update</button>
+				<button class="btn btn-danger" type="btn" (click)="handleDeleteUser()">Delete</button>
+			</div>
+		</form>
+	</div>
+</div>
+<div class="loader-container" *ngIf="isSubmit">
+	<div class="spinner-border text-primary" role="status">
+		<span class="visually-hidden"></span>
+	</div>
+</div>

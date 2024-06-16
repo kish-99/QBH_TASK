@@ -1,0 +1,50 @@
+<form [formGroup]="userForm" (ngSubmit)="submitForm()">
+    <div class="row">
+        <div class="form-group col-6">
+            <label for="name" class="form-label">Name</label>
+            <input class="form-control" type="text" name="name" id="name" formControlName="name">
+            <app-form-error [form]="userForm" control="name" controlName="Name" [options]="{
+                messages:{
+                    required:'Name is required',
+                    minlength:'Name is too short.'
+                }
+            }"></app-form-error>
+        </div>
+        <div class="form-group col-6">
+            <label for="phone" class="form-label">Phone</label>
+            <input class="form-control" type="number" name="phone" id="phone" formControlName="phone">
+            <app-form-error [form]="userForm" control="phone" controlName="phone" [options]="{
+                messages:{
+                    required:'Phone is required',
+                    minlength:'Phone is too short.',
+                    maxlength: 'Phone is too large'
+                }
+            }"></app-form-error>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input class="form-control" type="email" name="email" id="email" formControlName="email">
+        <app-form-error [form]="userForm" control="email" controlName="email" [options]="{
+            messages:{
+                required:'Email is required'
+            }
+        }"></app-form-error>
+    </div>
+    <div class="form-group">
+        <label for="address" class="form-label">Address</label>
+        <textarea class="form-control" name="address" id="address" formControlName="address" cols="20" rows="5"></textarea>
+        <app-form-error [form]="userForm" control="address" controlName="address" [options]="{
+            messages:{
+                required:'Address is required'
+            }
+        }"></app-form-error>
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+        <button class="btn btn-primary" type="submit" [disabled]="isSubmit">Submit</button>
+    </div>
+    <div class="loader-container" *ngIf="isSubmit">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden"></span></div>
+    </div>
+</form>
